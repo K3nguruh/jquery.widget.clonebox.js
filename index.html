@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <!-- TITLE -->
+    <title>Beispiele - Clonebox</title>
+
+    <!-- META -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="content-language" content="de" />
+
+    <!-- STYLESHEET (optional) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <!-- Prism.js -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+
+    <!-- JAVASCRIPT (required) -->
+    <script src="javascripts/libraries/jquery-3.7.1/jquery.min.js"></script>
+    <script src="javascripts/libraries/jquery-ui-1.13.2/jquery-ui.min.js"></script>
+    <script src="javascripts/jquery.widget.clonebox.min.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="card my-3">
+        <div class="card-header">
+          <span class="fs-5 fw-bold">Beispiele</span>
+        </div>
+        <div class="card-body">
+          <div class="row row-gap-2">
+            <div class="col-12 col-lg-6">
+              <!-- standard -->
+              <div class="row mb-3">
+                <div class="fw-bold text-center">Clonebox - Standard</div>
+              </div>
+
+              <!-- input -->
+              <div class="row mb-3">
+                <label class="col col-form-label">Input Element</label>
+                <div class="col-12 col-sm-7 col-md-8 col-lg-12 col-xl-8">
+                  <div class="row row-gap-1" data-plugin="clonebox">
+                    <div class="input-group" data-clone="row">
+                      <input class="form-control" type="text" name="clonebox-left-input[]" value="" />
+                      <button class="btn btn-sm btn-outline-success" type="button" data-clone-btn="add"><i class="fa-solid fa-plus fa-fw"></i></button>
+                      <button class="btn btn-sm btn-outline-danger" type="button" data-clone-btn="del"><i class="fa-solid fa-minus fa-fw"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- date -->
+              <div class="row mb-3">
+                <label class="col col-form-label">Date Element</label>
+                <div class="col-12 col-sm-7 col-md-8 col-lg-12 col-xl-8">
+                  <div class="row row-gap-1" data-plugin="clonebox">
+                    <div class="input-group" data-clone="row">
+                      <input class="form-control" type="date" name="clonebox-left-date[]" value="" />
+                      <button class="btn btn-sm btn-outline-success" type="button" data-clone-btn="add"><i class="fa-solid fa-plus fa-fw"></i></button>
+                      <button class="btn btn-sm btn-outline-danger" type="button" data-clone-btn="del"><i class="fa-solid fa-minus fa-fw"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- select -->
+              <div class="row mb-3">
+                <label class="col col-form-label">Select Element</label>
+                <div class="col-12 col-sm-7 col-md-8 col-lg-12 col-xl-8">
+                  <div class="row row-gap-1" data-plugin="clonebox">
+                    <div class="input-group" data-clone="row">
+                      <select class="form-select" name="clonebox-left-select[]">
+                        <option value="">Bitte Auswählen</option>
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                      </select>
+                      <button class="btn btn-sm btn-outline-success" type="button" data-clone-btn="add"><i class="fa-solid fa-plus fa-fw"></i></button>
+                      <button class="btn btn-sm btn-outline-danger" type="button" data-clone-btn="del"><i class="fa-solid fa-minus fa-fw"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- code -->
+              <div class="row mb-1">
+                <div class="col-12 fw-bold text-center">Beispiel HTML-Code (stark vereinfacht)</div>
+                <div class="col-12">
+                  <pre class="p-2 border rounded bg-transparent"><code class="language-html">&lt;div data-plugin="clonebox"&gt;
+  &lt;div data-clone="row"&gt;
+    &lt;input name="input[]"&gt;
+    &lt;button data-clone-btn="add"&gt;+&lt;/button&gt;
+    &lt;button data-clone-btn="del"&gt;-&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+              </div>
+
+              <!-- -->
+            </div>
+            <div class="col-12 col-lg-6">
+              <!-- standard -->
+              <div class="row mb-3">
+                <div class="fw-bold text-center">Clonebox - Limit: 5</div>
+              </div>
+
+              <!-- input -->
+              <div class="row mb-3">
+                <label class="col col-form-label">Input Element</label>
+                <div class="col-12 col-sm-7 col-md-8 col-lg-12 col-xl-8">
+                  <div class="row row-gap-1" data-plugin="clonebox" data-limit="5">
+                    <div class="input-group" data-clone="row">
+                      <input class="form-control" type="text" name="clonebox-right-input[]" value="" />
+                      <button class="btn btn-sm btn-outline-success" type="button" data-clone-btn="add"><i class="fa-solid fa-plus fa-fw"></i></button>
+                      <button class="btn btn-sm btn-outline-danger" type="button" data-clone-btn="del"><i class="fa-solid fa-minus fa-fw"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- date -->
+              <div class="row mb-3">
+                <label class="col col-form-label">Date Element</label>
+                <div class="col-12 col-sm-7 col-md-8 col-lg-12 col-xl-8">
+                  <div class="row row-gap-1" data-plugin="clonebox" data-limit="5">
+                    <div class="input-group" data-clone="row">
+                      <input class="form-control" type="date" name="clonebox-right-date[]" value="" />
+                      <button class="btn btn-sm btn-outline-success" type="button" data-clone-btn="add"><i class="fa-solid fa-plus fa-fw"></i></button>
+                      <button class="btn btn-sm btn-outline-danger" type="button" data-clone-btn="del"><i class="fa-solid fa-minus fa-fw"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- select -->
+              <div class="row mb-3">
+                <label class="col col-form-label">Select Element</label>
+                <div class="col-12 col-sm-7 col-md-8 col-lg-12 col-xl-8">
+                  <div class="row row-gap-1" data-plugin="clonebox" data-limit="5">
+                    <div class="input-group" data-clone="row">
+                      <select class="form-select" name="clonebox-right-select[]">
+                        <option value="">Bitte Auswählen</option>
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                      </select>
+                      <button class="btn btn-sm btn-outline-success" type="button" data-clone-btn="add"><i class="fa-solid fa-plus fa-fw"></i></button>
+                      <button class="btn btn-sm btn-outline-danger" type="button" data-clone-btn="del"><i class="fa-solid fa-minus fa-fw"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- code -->
+              <div class="row mb-1">
+                <div class="col-12 fw-bold text-center">Beispiel HTML-Code (stark vereinfacht)</div>
+                <div class="col-12">
+                  <pre class="p-2 border rounded bg-transparent"><code class="language-html">&lt;div data-plugin="clonebox" data-limit="5"&gt;
+  &lt;div data-clone="row"&gt;
+    &lt;input name="input[]"&gt;
+    &lt;button data-clone-btn="add"&gt;+&lt;/button&gt;
+    &lt;button data-clone-btn="del"&gt;-&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+              </div>
+
+              <!-- -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
