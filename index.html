@@ -20,7 +20,7 @@
     <!-- JAVASCRIPT (required) -->
     <script src="javascripts/libraries/jquery-3.7.1/jquery.min.js"></script>
     <script src="javascripts/libraries/jquery-ui-1.13.2/jquery-ui.min.js"></script>
-    <script src="javascripts/jquery.widget.clonebox.min.js"></script>
+    <script src="javascripts/jquery.widget.clonebox.js"></script>
   </head>
 
   <body>
@@ -47,6 +47,9 @@
                       <button class="btn btn-sm btn-outline-success" type="button" data-clone-btn="add"><i class="fa-solid fa-plus fa-fw"></i></button>
                       <button class="btn btn-sm btn-outline-danger" type="button" data-clone-btn="del"><i class="fa-solid fa-minus fa-fw"></i></button>
                     </div>
+                    <div class="text-end">
+                      <button class="btn btn-outline-secondary" type="button" data-clone-btn="reset">Reset</button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -60,6 +63,9 @@
                       <input class="form-control" type="date" name="clonebox-left-date[]" value="" />
                       <button class="btn btn-sm btn-outline-success" type="button" data-clone-btn="add"><i class="fa-solid fa-plus fa-fw"></i></button>
                       <button class="btn btn-sm btn-outline-danger" type="button" data-clone-btn="del"><i class="fa-solid fa-minus fa-fw"></i></button>
+                    </div>
+                    <div class="text-end">
+                      <button class="btn btn-outline-secondary" type="button" data-clone-btn="reset">Reset</button>
                     </div>
                   </div>
                 </div>
@@ -80,6 +86,9 @@
                       <button class="btn btn-sm btn-outline-success" type="button" data-clone-btn="add"><i class="fa-solid fa-plus fa-fw"></i></button>
                       <button class="btn btn-sm btn-outline-danger" type="button" data-clone-btn="del"><i class="fa-solid fa-minus fa-fw"></i></button>
                     </div>
+                    <div class="text-end">
+                      <button class="btn btn-outline-secondary" type="button" data-clone-btn="reset">Reset</button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -93,6 +102,9 @@
     &lt;input name="input[]"&gt;
     &lt;button data-clone-btn="add"&gt;+&lt;/button&gt;
     &lt;button data-clone-btn="del"&gt;-&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;button data-clone-btn="reset"&gt;Reset&lt;/button&gt;
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
                 </div>
@@ -116,6 +128,9 @@
                       <button class="btn btn-sm btn-outline-success" type="button" data-clone-btn="add"><i class="fa-solid fa-plus fa-fw"></i></button>
                       <button class="btn btn-sm btn-outline-danger" type="button" data-clone-btn="del"><i class="fa-solid fa-minus fa-fw"></i></button>
                     </div>
+                    <div class="text-end">
+                      <button class="btn btn-outline-secondary" type="button" data-clone-btn="reset">Reset</button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -129,6 +144,9 @@
                       <input class="form-control" type="date" name="clonebox-right-date[]" value="" />
                       <button class="btn btn-sm btn-outline-success" type="button" data-clone-btn="add"><i class="fa-solid fa-plus fa-fw"></i></button>
                       <button class="btn btn-sm btn-outline-danger" type="button" data-clone-btn="del"><i class="fa-solid fa-minus fa-fw"></i></button>
+                    </div>
+                    <div class="text-end">
+                      <button class="btn btn-outline-secondary" type="button" data-clone-btn="reset">Reset</button>
                     </div>
                   </div>
                 </div>
@@ -149,6 +167,9 @@
                       <button class="btn btn-sm btn-outline-success" type="button" data-clone-btn="add"><i class="fa-solid fa-plus fa-fw"></i></button>
                       <button class="btn btn-sm btn-outline-danger" type="button" data-clone-btn="del"><i class="fa-solid fa-minus fa-fw"></i></button>
                     </div>
+                    <div class="text-end">
+                      <button class="btn btn-outline-secondary" type="button" data-clone-btn="reset">Reset</button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -163,15 +184,39 @@
     &lt;button data-clone-btn="add"&gt;+&lt;/button&gt;
     &lt;button data-clone-btn="del"&gt;-&lt;/button&gt;
   &lt;/div&gt;
+  &lt;div&gt;
+    &lt;button data-clone-btn="reset"&gt;Reset&lt;/button&gt;
+  &lt;/div&gt;
 &lt;/div&gt;</code></pre>
                 </div>
               </div>
 
               <!-- -->
             </div>
+
+            <div class="col-12">
+              <div class="row mb-1">
+                <div class="col-12 fw-bold text-center">Beispiel HTML-Code <button id="resetAll" class="btn btn-outline-primary" type="button">Reset All</button></div>
+                <div class="col-12">
+                  <pre class="p-2 border rounded bg-transparent"><code class="language-html">&lt;button id="myID" type="button"&gt;Reset&lt;/button&gt;
+&lt;script&gt;
+  $("#myID").on("click", function () {
+    $("body").find('[data-plugin="clonebox"]').clonebox("reset");
+  });
+&lt;/script&gt;</code></pre>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- -->
+    <script>
+      $("#resetAll").on("click", function () {
+        $("body").find('[data-plugin="clonebox"]').clonebox("reset");
+      });
+    </script>
   </body>
 </html>

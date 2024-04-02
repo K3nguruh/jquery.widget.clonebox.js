@@ -6,8 +6,8 @@
  * Diese Zeilen können verwendet werden, um wiederholte Eingaben oder Daten in einem Formular zu verwalten.
  *
  * Autor:   K3nguruh <https://github.com/K3nguruh>
- * Version: 1.0.0
- * Datum:   2024-04-02 17:04
+ * Version: 1.0.1
+ * Datum:   2024-04-02 20:32
  * Lizenz:  MIT-Lizenz
  */
 
@@ -22,6 +22,7 @@
    * @param {string} options.row - Der Selektor für das Klon-Element.
    * @param {string} options.add - Der Selektor für die Schaltfläche zum Hinzufügen einer Zeile.
    * @param {string} options.del - Der Selektor für die Schaltfläche zum Löschen einer Zeile.
+   * @param {string} options.reset - Der Selektor für die Schaltfläche zum Löschen aller Zeile.
    * @param {string} options.invalid - Die CSS-Klasse für den ungültigen Zustand von Eingabefeldern.
    * @param {string} options.valid - Die CSS-Klasse für den gültigen Zustand von Eingabefeldern.
    * @param {string} options.disabled - Die CSS-Klasse für das (de)aktivieren von dem Add-Button.
@@ -33,6 +34,7 @@
       row: '[data-clone="row"]',
       add: '[data-clone-btn="add"]',
       del: '[data-clone-btn="del"]',
+      reset: '[data-clone-btn="reset"]',
 
       invalid: "is-invalid",
       valid: "is-valid",
@@ -78,6 +80,7 @@
     _initEvents: function () {
       this._on(this.element, { ["click " + this.options.add]: this._onClickAdd });
       this._on(this.element, { ["click " + this.options.del]: this._onClickDel });
+      this._on(this.element, { ["click " + this.options.reset]: this._onClickReset });
     },
 
     /**
@@ -121,11 +124,43 @@
       const $thisRow = $(event.currentTarget).closest(this.options.row);
 
       if ($allRows.length > 1) {
-        $thisRow.remove();
+        this._removeRows($thisRow);
       }
 
       this._resetInputs($thisRow);
       this._initWidget();
+    },
+
+    /**
+     * Entfernt alle Zeilen, die über die erste Zeile hinausgehen.
+     *
+     * @param {Event} event Das Klick-Ereignis der Schaltfläche.
+     *
+     * Diese Methode wird verwendet, um alle Zeilen außer der ersten zu entfernen.
+     * Sie sorgt dafür, dass alle zusätzlichen Zeilen gelöscht werden, um das Formular in den Ausgangszustand zu versetzen.
+     */
+    _onClickReset: function (event) {
+      if (event) event.preventDefault();
+
+      const $allRows = this.element.find(this.options.row);
+      const $firstRow = $allRows.first();
+      const $delRows = $allRows.not($firstRow);
+
+      this._removeRows($delRows);
+      this._resetInputs($firstRow);
+      this._initWidget();
+    },
+
+    /**
+     * Entfernt eine oder mehrere Zeile aus dem Formular.
+     *
+     * @param {jQuery} row Die zu entfernende Zeile(n).
+     *
+     * Diese Methode wird verwendet, um eine oder mehrere Zeile aus dem Formular zu entfernen.
+     * Sie wird normalerweise aufgerufen, wenn der Benutzer auf die Schaltfläche zum Löschen einer Zeile klickt.
+     */
+    _removeRows: function (row) {
+      $(row).remove();
     },
 
     /**
@@ -189,6 +224,17 @@
             }
           });
       });
+    },
+
+    /**
+     * Setzt das Widget zurück, indem alle Zeilen außer der ersten entfernt werden.
+     * Die Werte der ersten Zeile werden zurückgesetzt.
+     *
+     * Diese Methode wird von ausserhalb aufgerufen. Sie entfernt alle Zeilen außer der ersten und
+     * setzt die Werte der Eingabefelder zurück, um das Formular in den Ausgangszustand zu versetzen.
+     */
+    reset: function () {
+      this._onClickReset(null);
     },
   });
 
